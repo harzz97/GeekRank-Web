@@ -1,0 +1,17 @@
+{
+  "name": "geekrank",
+  "version": "0.0.1",
+  "description": "Online Sandbox Environment to run programs ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "harzzElliot",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest",
+    "nodemon": "^1.18.9",
+    "passport": "^0.4.0"
+  }
+}
