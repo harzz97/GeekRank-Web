@@ -1,0 +1,67 @@
+@keyframes introText {
+    from {
+        width: 0;
+    }
+}
+.main-container {
+    min-height: 100vh;
+}
+.page_title {
+    font-family: "Lato", sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    color: #38424e;
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    animation: introText 1.5s steps(45, end);
+    /* , blink-caret .75s step-end infinite; */
+    overflow: hidden;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 2px;
+    /* Adjust as needed */
+    /* margin-top: 55px; */
+}
+
+.blinking_cursor {
+    animation: blinkingText 0.8s infinite;
+    font-family: "Lato", sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    margin: 0 auto;
+    display: inline-block;
+    /* margin-top: 55px; */
+    overflow: hidden;
+    
+}
+
+.login-signup-container {
+    box-shadow: 6px 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.nav-item {
+    border: 0px;
+    width: 40%;
+}
+
+.nav-tabs, .nav-tabs .nav-link {
+    border: 0px;
+}
+
+.nav-tabs .nav-link {
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: #999;
+}
+
+.tab-content {
+    background: #fff;
+    /*box-shadow: 6px 12px 25px rgba(0,0,0,0.4);*/
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
