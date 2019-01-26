@@ -3,9 +3,33 @@
         width: 0;
     }
 }
+
+@keyframes blinkingText {
+    0% {
+        color: #0275d8;
+    }
+
+    49% {
+        color: transparent;
+    }
+
+    50% {
+        color: transparent;
+    }
+
+    99% {
+        color: transparent;
+    }
+
+    100% {
+        color: #0275d8;
+    }
+}
+
 .main-container {
     min-height: 100vh;
 }
+
 .page_title {
     font-family: "Lato", sans-serif;
     font-size: 50px;
@@ -36,7 +60,7 @@
     display: inline-block;
     /* margin-top: 55px; */
     overflow: hidden;
-    
+
 }
 
 .login-signup-container {
@@ -48,7 +72,8 @@
     width: 40%;
 }
 
-.nav-tabs, .nav-tabs .nav-link {
+.nav-tabs,
+.nav-tabs .nav-link {
     border: 0px;
 }
 
@@ -64,4 +89,33 @@
     /*box-shadow: 6px 12px 25px rgba(0,0,0,0.4);*/
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+}
+
+.navbar-title {
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    /* color: #38424e; */
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    animation: introText 1.5s steps(45, end);
+    /* , blink-caret .75s step-end infinite; */
+    overflow: hidden;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 2px;
+}
+
+.navbar-cursor {
+    animation: blinkingText 0.8s infinite;
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0 auto;
+    display: inline-block;
+    overflow: hidden;
 }
