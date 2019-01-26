@@ -1,0 +1,77 @@
+html
+  head
+    title GeekRank
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/script.js')
+    link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+    link(rel='stylesheet', href='css/bootstrap.css', type='text/css')
+    link(rel='stylesheet', href='css/custom.css', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lato:900|Roboto', rel='stylesheet')
+    style.
+      body {
+      background: #f3f7f7;
+      /* text-align: center; */
+      }
+     
+      .motivation_one{
+      font-family: 'Roboto';
+      font-size: 25px;
+      color:dimgray;
+      position: relative;
+      top:40px;
+      left:-45px;
+      }
+      .motivation_two{
+      font-family: 'Lato';
+      font-size: 45px;
+      color: #38424e;
+      margin-top: 0%;
+      padding-top: 0%;
+      }
+  body
+    .container
+      .row.main-container.d-flex.align-items-center
+        .col-6(style='text-align:center;top:15%')
+          p.page_title GeekRank
+          span.blinking_cursor |
+          br
+          //
+            <span class="motivation_one">Become a better</span>
+            </br>
+            <span class="motivation_two">Programmer</span>
+        .col-6
+          .col-12.login-signup-container.p-0
+            ul.nav.nav-tabs(role='tablist')
+              li.nav-item.text-center(style='width: 50%;')
+                a#signup-tab.nav-link(data-toggle='tab', href='#signup', role='tab', aria-controls='signup', aria-selected='false') Signup
+              li.nav-item.text-center(style='width: 50%;')
+                a#login-tab.nav-link.active(data-toggle='tab', href='#login', role='tab', aria-controls='login', aria-selected='true') Login
+            .tab-content
+              #signup.tab-pane.fade.p-4(role='tabpanel', aria-labelledby='signup-tab')
+                form(id="registerForm",method="post", action="account/register")
+                  .form-group
+                    //- label(for='signupEmail') Email address
+                    input#signupEmail.form-control(type='email', placeholder='Email')
+                  .form-group
+                    //- label(for='signupUserId') Username
+                    input#signupUsername.form-control(type='text', placeholder='Username')
+                  .form-group
+                    //- label(for='signupPassword') Password
+                    input#signupPassword.form-control(type='password', placeholder='Your Password')
+                  button.btn.btn-outline-primary.float-right(type="submit",onClick='registerUser()') Signup
+                  .clearfix
+                  //-   label(for='signupCPassword') Confirm Password
+                  //-   input#signupCPassword.form-control(type='password', placeholder='Confirm Password')
+                    
+              #login.tab-pane.fade.show.active.p-4(role='tabpanel', aria-labelledby='login-tab')
+                form(method="post",action="/dashboard")
+                    .form-group
+                        //- label(for='loginEmail') Email Address
+                        input#loginEmail.form-control(type='email', aria-describedby='emailHelp', placeholder='Your email or username')
+                    .form-group
+                        //- label(for"loginpassword"='') Password
+                        input#loginPassword.form-control(type='password', aria-describedby='passwordHelp', placeholder='Your Password')
+                    button.btn.btn-outline-primary.float-right Login
+                    .clearfix
