@@ -1,7 +1,7 @@
 const sequalize = require("sequelize")
 const helper = require("../../core/DatabaseHelper")
 const User = helper.define('user', {
-    userName: {
+    username: {
         type: sequalize.STRING
     },
     email :{
