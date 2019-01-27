@@ -10,9 +10,14 @@ html
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49",crossorigin="anonymous")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js",integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1",crossorigin="anonymous")
         style.
-           nav-link.dropdown-toggle::after {
-                display: none;
-            }   
+            .custom-style:hover{
+                box-shadow:0 0.4px 15px rgba(0,0,0,0.25);
+                border-color:transparent
+            }
+            .custom-a:hover{
+                text-color: #fff;
+            }
+        
     body
         nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.fixed-top
             div.navbar-brand(href='#')
@@ -22,13 +27,20 @@ html
                 span.navbar-toggler-icon
             div.collapse.navbar-collapse(id="navbarNavDropdown")                              
                 ul.navbar-nav.ml-auto
-                    li.nav-item.dropdown
-                        a.btn(id="navbarDropdownMenuLink",role="button",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false") 
-                            i.fas.fa-ellipsis-v(style={color:"#ffffff"})
-                        div.dropdown-menu.dropdown-menu-right.dropdown-info(aria-labelledby="navbarDropdownMenuLink")
-                            a.dropdown-item(href="#") Change Theme
-                            a.dropdown-item(href="#") Change Password
-                            a.dropdown-item(href="#") Logout
+                    li.nav-item
+                        a.card-link.text-light(href="/logout") Logout
+        div.container(style={"padding-top":"75px"})
+            .row
+                each color, index in [{name:"Hello World!",level:"Easy"}, {name:"Study in Pink",level:"Medium"}, {name:"Murder of Cooper",level:"Hard"},{name:"Winter is coming!",level:"Expert"},{name:"The Great Game",level:"God"}]
+                    .card.col-md-5.mt-5.mr-5
+                        .row.custom-style(style={"border-radius":"5px"})
+                            .col-md-6.mb-3
+                                h5.text-dark.mt-4=color.name
+                                span.text.text-secondary=color.level
+                            .col-md-6.align-self-center
+                                a.btn.btn-outline-primary.float-right.text-primary.custom-a(onClick="") Solve Challenge
+
+
                     
         
 
