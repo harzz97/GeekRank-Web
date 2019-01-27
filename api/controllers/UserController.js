@@ -3,8 +3,22 @@ var bcrypt = require("bcrypt")
 var sanitizer = require("sanitizer")
 var dbHelper = require("../../core/DatabaseHelper")
 var User = require("../models/User")
+require("../../core/passport")
+var passport = require("passport")
+, LocalStrategy = require('passport-local').Strategy
 
 
+/* validate and login user*/
+exports.login = async function loginUser(req, res) {
+    console.log("LoginUser",req.body.username)
+    console.log("LoginUser",req.isAuthenticated())
+    passport.authenticate('login',{
+        successRedirect:'/dashboard',
+        failureRedirect:"/404",
+        failureFlash:true,
+    })(req, res)
+    
+}
 
 
 
@@ -13,7 +27,7 @@ exports.registerUser = function registerUser(req, res) {
     dbHelper.query("select count(*) from users").then((val) => {
         User.findOne({
             where: {
-                userName: sanitizer.sanitize(req.body.userName)
+                username: sanitizer.sanitize(req.body.username)
             }
         }).then((value) => {
             console.log("SYNC VALUE", value)
@@ -28,7 +42,7 @@ exports.registerUser = function registerUser(req, res) {
             res.json({
                 success: false
             })
-    
+
         })
     }).catch(err => {
         console.log("ERR ", err)
@@ -40,10 +54,11 @@ exports.registerUser = function registerUser(req, res) {
 }
 
 function addUserToDB(body, res) {
+    console.log("BODY",body)
     bcrypt.hash(sanitizer.sanitize(body.password), 10, (err, hash) => {
         User.sync().then(() => {
             return User.create({
-                userName: sanitizer.sanitize(body.userName).toLowerCase(),
+                username: sanitizer.sanitize(body.username).toLowerCase(),
                 email: sanitizer.sanitize(body.email).toLowerCase(),
                 password: hash
             })
