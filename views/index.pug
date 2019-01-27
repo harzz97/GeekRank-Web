@@ -50,7 +50,7 @@ html
                 a#login-tab.nav-link.active(data-toggle='tab', href='#login', role='tab', aria-controls='login', aria-selected='true') Login
             .tab-content
               #signup.tab-pane.fade.p-4(role='tabpanel', aria-labelledby='signup-tab')
-                form(id="registerForm",method="post", action="account/register")
+                form#registerForm(method="post")
                   .form-group
                     //- label(for='signupEmail') Email address
                     input#signupEmail.form-control(type='email', placeholder='Email')
@@ -66,12 +66,12 @@ html
                   //-   input#signupCPassword.form-control(type='password', placeholder='Confirm Password')
                     
               #login.tab-pane.fade.show.active.p-4(role='tabpanel', aria-labelledby='login-tab')
-                form(method="post",action="/dashboard")
+                form#loginForm(method="post",action="/api/account/login")
                     .form-group
                         //- label(for='loginEmail') Email Address
-                        input#loginEmail.form-control(type='email', aria-describedby='emailHelp', placeholder='Your email or username')
+                        input#loginUsername.form-control(type='text', aria-describedby='usernameHelp', placeholder='Your username',name='username') 
                     .form-group
                         //- label(for"loginpassword"='') Password
-                        input#loginPassword.form-control(type='password', aria-describedby='passwordHelp', placeholder='Your Password')
+                        input#loginPassword.form-control(type='password', aria-describedby='passwordHelp', placeholder='Your Password',name='password')
                     button.btn.btn-outline-primary.float-right Login
                     .clearfix
