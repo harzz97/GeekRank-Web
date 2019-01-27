@@ -55,6 +55,11 @@ router.get("/", (req, res) => {
 router.get("/dashboard", (req, res) => {
   res.render("dashboard/index")
 })
+
+router.get("/challenge/",(req,res) => {
+  res.render("/challenge/index.pug")
+})
+
 app.use("/", router);
 
 app.use("*", function (req, res) {
