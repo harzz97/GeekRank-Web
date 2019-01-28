@@ -11,10 +11,10 @@ var session = require("express-session")
 var questionController = require("./api/controllers/ChallengeController")
 var sessionSecret = {
   secret: 'apsc',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: {
-    secure: true
+    secure: false
   }
 }
 
@@ -50,18 +50,29 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
-  res.render("index",{pageName:"loginPage"});
+  if(!req.isAuthenticated())
+    res.render("index",{pageName:"loginPage"})
+  else
+    res.redirect("/dashboard")
 });
 
 router.get("/dashboard", (req, res) => {
+  if(!req.isAuthenticated())
+    res.redirect("/")
+  else
     questionController.getQuestionTitles(req,res)
 }) 
 
 router.get("/challenge/:id",(req,res) => {
-  questionController.getQuestion(req.params.id , res);
+  if(!req.isAuthenticated())
+    res.redirect("/")
+  else
+    questionController.getQuestion(req.params.id , res);
 })
 
 router.get("/logout",(req,res)=>{
+  req.logout();
+  console.log("USer Logged In",req.isAuthenticated())
   res.render("index",{pageName:"loginPage"})
 })
 app.use("/", router);
