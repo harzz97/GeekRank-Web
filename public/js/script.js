@@ -1,4 +1,5 @@
 var BASE_URL = "/api/"
+var docker_endpoint = "http://aca6342e.ngrok.io/execute"
 
 function registerUser() {
     console.log("\n registerUser")
@@ -30,4 +31,36 @@ function registerUser() {
     return false;
 }
 
+$(() => {
+    $('select#languageSelector').on('change', function (e) {
+        if (this.value === "C") {
+            editor.session.setValue('#include <stdio.h>\nint main(){\n//Your code here\nreturn 0;\n}')
+            editor.session.setMode("ace/mode/c_cpp")
+            editor.gotoLine(3)
+        } else {
+            editor.session.setValue("if _name_ == '_main_': \n# Write your code here\n")
+            editor.session.setMode("ace/mode/python")
+            editor.gotoLine(3)
+        }
+
+    });
+})
+
+function submitCode() {
+    // console.log(id)
+    var userCode = editor.getValue();
+    $.ajax({
+        method: "post",
+        url: docker_endpoint+"/1",
+        data: {
+            script: userCode,
+            language: "C"
+        },
+        success: function (data) {
+            console.log("Submit Code Success", data)
+        },
+        failure: function (data) {
+            console.log("Submit Code Failure b", data)
+        }
+    });
 }
