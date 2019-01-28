@@ -37,8 +37,12 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (username, done) {
     console.log(username, "DES")
     User.findOne({
-        username
-    }, function (err, user) {
-        done(err, user);
+        where:{
+            username
+        }
+    }).then((user)=>{
+        return done(null,user);
+    }).catch(err =>{
+        done(err);
     });
 });
