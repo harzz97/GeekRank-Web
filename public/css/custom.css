@@ -6,7 +6,7 @@
 
 @keyframes blinkingText {
     0% {
-        color: #0275d8;
+        color: #404E99;
     }
 
     49% {
@@ -22,7 +22,7 @@
     }
 
     100% {
-        color: #0275d8;
+        color: #404E99;
     }
 }
 
@@ -95,11 +95,11 @@
     font-family: "Lato", sans-serif;
     font-size: 20px;
     font-weight: 900;
-    /* color: #38424e; */
+    color: #404E99;
     display: inline-block;
     text-align: center;
     width: 100%;
-    animation: introText 1.5s steps(45, end);
+    /* animation: introText 1.5s steps(45, end); */
     /* , blink-caret .75s step-end infinite; */
     overflow: hidden;
     /* The typwriter cursor */
@@ -125,8 +125,15 @@
     border-color: transparent
 }
 
-.custom-a:hover {
-    text-color: #fff;
+.custom-button:hover {
+    color: #fff !important;
+    background-color: #404E99;
+}
+
+.custom-button {
+    color: #404E99;
+    font-family: "Lato";
+    border-color: #404E99
 }
 
 #editor {
@@ -158,10 +165,10 @@
 #dashboardPage {
     min-height: 75rem;
     padding-top: 4.5rem;
-    background: #f3f7f7;
+    background: #f9f9f9;
 }
 
 #loginPage {
-    background: #f3f7f7;
+    background: #f9f9f9;
 
 }
