@@ -119,3 +119,49 @@
     display: inline-block;
     overflow: hidden;
 }
+
+.custom-style:hover {
+    box-shadow: 0 0.4px 15px rgba(0, 0, 0, 0.25);
+    border-color: transparent
+}
+
+.custom-a:hover {
+    text-color: #fff;
+}
+
+#editor {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.motivation_one {
+    font-family: 'Roboto';
+    font-size: 25px;
+    color: dimgray;
+    position: relative;
+    top: 40px;
+    left: -45px;
+}
+
+.motivation_two {
+    font-family: 'Lato';
+    font-size: 45px;
+    color: #38424e;
+    margin-top: 0%;
+    padding-top: 0%;
+}
+
+#dashboardPage {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+    background: #f3f7f7;
+}
+
+#loginPage {
+    background: #f3f7f7;
+
+}
