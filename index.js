@@ -8,6 +8,7 @@ var bodyParser = require("body-parser")
 var flash = require("connect-flash")
 var passport = require("passport")
 var session = require("express-session")
+var questionController = require("./api/controllers/ChallengeController")
 var sessionSecret = {
   secret: 'apsc',
   resave: false,
@@ -49,17 +50,20 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index",{pageName:"loginPage"});
 });
 
 router.get("/dashboard", (req, res) => {
-  res.render("dashboard/index")
+    questionController.getQuestionTitles(req,res)
+}) 
+
+router.get("/challenge/:id",(req,res) => {
+  questionController.getQuestion(req.params.id , res);
 })
 
-router.get("/challenge/",(req,res) => {
-  res.render("/challenge/index.pug")
+router.get("/logout",(req,res)=>{
+  res.render("index",{pageName:"loginPage"})
 })
-
 app.use("/", router);
 
 app.use("*", function (req, res) {
