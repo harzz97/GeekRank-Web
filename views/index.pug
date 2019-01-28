@@ -29,7 +29,7 @@ block body
                   .form-group
                     //- label(for='signupPassword') Password
                     input#signupPassword.form-control(type='password', placeholder='Your Password',required)
-                  button.btn.btn-outline-primary.float-right(type="submit",onClick='registerUser()') Signup
+                  button.btn.btn-outline-primary.float-right.custom-button(type="submit",onClick='registerUser()') Signup
                   .clearfix
                   //-   label(for='signupCPassword') Confirm Password
                   //-   input#signupCPassword.form-control(type='password', placeholder='Confirm Password')
@@ -42,5 +42,5 @@ block body
                     .form-group
                         //- label(for"loginpassword"='') Password
                         input#loginPassword.form-control(type='password', aria-describedby='passwordHelp', placeholder='Your Password',name='password',required)
-                    button.btn.btn-outline-primary.float-right Login
+                    button.btn.btn-outline-primary.float-right.custom-button &nbsp; Login &nbsp;
                     .clearfix
