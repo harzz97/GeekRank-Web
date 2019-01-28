@@ -1,36 +1,5 @@
-html
-  head
-    title GeekRank
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-    script(src='/js/bootstrap.min.js')
-    script(src='/js/script.js')
-    link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
-    link(rel='stylesheet', href='css/bootstrap.css', type='text/css')
-    link(rel='stylesheet', href='css/custom.css', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Lato:900|Roboto', rel='stylesheet')
-    style.
-      body {
-      background: #f3f7f7;
-      /* text-align: center; */
-      }
-     
-      .motivation_one{
-      font-family: 'Roboto';
-      font-size: 25px;
-      color:dimgray;
-      position: relative;
-      top:40px;
-      left:-45px;
-      }
-      .motivation_two{
-      font-family: 'Lato';
-      font-size: 45px;
-      color: #38424e;
-      margin-top: 0%;
-      padding-top: 0%;
-      }
-  body
+extends ./base/skeleton
+block body
     .container
       .row.main-container.d-flex.align-items-center
         .col-6(style='text-align:center;top:15%')
@@ -53,13 +22,13 @@ html
                 form#registerForm(method="post")
                   .form-group
                     //- label(for='signupEmail') Email address
-                    input#signupEmail.form-control(type='email', placeholder='Email')
+                    input#signupEmail.form-control(type='email', placeholder='Email',required)
                   .form-group
                     //- label(for='signupUserId') Username
-                    input#signupUsername.form-control(type='text', placeholder='Username')
+                    input#signupUsername.form-control(type='text', placeholder='Username',required)
                   .form-group
                     //- label(for='signupPassword') Password
-                    input#signupPassword.form-control(type='password', placeholder='Your Password')
+                    input#signupPassword.form-control(type='password', placeholder='Your Password',required)
                   button.btn.btn-outline-primary.float-right(type="submit",onClick='registerUser()') Signup
                   .clearfix
                   //-   label(for='signupCPassword') Confirm Password
@@ -69,9 +38,9 @@ html
                 form#loginForm(method="post",action="/api/account/login")
                     .form-group
                         //- label(for='loginEmail') Email Address
-                        input#loginUsername.form-control(type='text', aria-describedby='usernameHelp', placeholder='Your username',name='username') 
+                        input#loginUsername.form-control(type='text', aria-describedby='usernameHelp', placeholder='Your username',name='username',required) 
                     .form-group
                         //- label(for"loginpassword"='') Password
-                        input#loginPassword.form-control(type='password', aria-describedby='passwordHelp', placeholder='Your Password',name='password')
+                        input#loginPassword.form-control(type='password', aria-describedby='passwordHelp', placeholder='Your Password',name='password',required)
                     button.btn.btn-outline-primary.float-right Login
                     .clearfix

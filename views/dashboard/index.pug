@@ -1,24 +1,5 @@
-html
-    head
-        title GeekRank - Dashboard
-        link(rel="stylesheet",href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
-        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css', type='text/css')
-        link(href='https://fonts.googleapis.com/css?family=Lato:900|Roboto', rel='stylesheet')
-        link(rel='stylesheet', href='css/custom.css', type='text/css')
-        link(rel="stylesheet",href="https://use.fontawesome.com/releases/v5.6.3/css/all.css",integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/",crossorigin="anonymous")
-        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49",crossorigin="anonymous")
-        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js",integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1",crossorigin="anonymous")
-        style.
-            .custom-style:hover{
-                box-shadow:0 0.4px 15px rgba(0,0,0,0.25);
-                border-color:transparent
-            }
-            .custom-a:hover{
-                text-color: #fff;
-            }
-        
-    body
+extends ../base/skeleton
+block body
         nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.fixed-top
             div.navbar-brand(href='#')
                 p.navbar-title GeekRank
@@ -29,16 +10,16 @@ html
                 ul.navbar-nav.ml-auto
                     li.nav-item
                         a.card-link.text-light(href="/logout") Logout
-        div.container(style={"padding-top":"75px"})
+        div.container
             .row
-                each color, index in [{name:"Hello World!",level:"Easy"}, {name:"Study in Pink",level:"Medium"}, {name:"Murder of Cooper",level:"Hard"},{name:"Winter is coming!",level:"Expert"},{name:"The Great Game",level:"God"}]
+                each color, index in question
                     .card.col-md-5.mt-5.mr-5
                         .row.custom-style(style={"border-radius":"5px"})
                             .col-md-6.mb-3
-                                h5.text-dark.mt-4=color.name
+                                h5.text-dark.mt-4=color.title
                                 span.text.text-secondary=color.level
                             .col-md-6.align-self-center
-                                a.btn.btn-outline-primary.float-right.text-primary.custom-a(onClick="") Solve Challenge
+                                a.btn.btn-outline-primary.float-right.custom-a(href="challenge/"+(index+1)) Solve Challenge
 
 
                     
