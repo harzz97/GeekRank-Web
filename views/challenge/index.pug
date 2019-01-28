@@ -1,15 +1,14 @@
 extends ../base/skeleton
 block body
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.fixed-top
-        div.navbar-brand(href='#')
+    nav.navbar.navbar-expand-lg.bg-white.fixed-top
+        a.navbar-brand.ml-4(href='/dashboard')
             p.navbar-title GeekRank
-            span.navbar-cursor |
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
         div.collapse.navbar-collapse(id="navbarNavDropdown")                              
             ul.navbar-nav.ml-auto
                 li.nav-item
-                    a.card-link.text-light(href="/logout") Logout
+                    a.card-link.text-secondary.mr-4(href="/logout") Logout
     .row
         .col-md-3.ml-5.pt-4
             h3(style={color:"#303132","font-family":'Lato',"font-weight":"700"})=title
@@ -21,24 +20,24 @@ block body
             p.text-secondary.pl-3=input
             h5.mt-4 Output format:
             p.text-secondary.ml-3=output
-        .col-md-7.pt-4
+        .col-md-8.pt-4
             .row.ml-4
                 h2.col-md-6 Editor
-                h3.col-md-3.text-right Language
-                .col-md-3.dropdown
+                h3.col-md-2.text-right.ml-4 Language
+                .col-md-3.dropdown.ml-1
                     select.custom-select.bg-light.text-dark.align-self-end(id="languageSelector") Select
                         option(href="#") C
                         option(href="#") Python 3
-                .col-md-11.card.mt-2.ml-3(style={height:"60%",width:"80%"})
+                .col-md-11.card.mt-2.ml-3(style={height:"70%"})
                     pre#editor 
-                .col-md-11.mt-3
-                    button.btn.btn-outline-primary.float-right(onclick="submitCode()") Submit
+                .col-md-12.mt-4.mr-4
+                    button.btn.btn-outline-primary.float-right.mr-5.custom-button(onclick="submitCode()") Submit
     script(src="/js/src-noconflict/ace.js",type="text/javascript" charset="utf-8")
     script.
         var editor = ace.edit("editor")
         editor.session.setValue('#include <stdio.h>\nint main(){\n//Your code here\nreturn 0;\n}')
         editor.gotoLine(3)
-        editor.setTheme("ace/theme/dracula")
+        editor.setTheme("ace/theme/xcode")
         editor.session.setMode("ace/mode/c_cpp")
         editor.setShowPrintMargin(false)
         editor.session.setUseWrapMode(true)
