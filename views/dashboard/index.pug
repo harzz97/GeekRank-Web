@@ -1,15 +1,14 @@
 extends ../base/skeleton
 block body
-        nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.fixed-top
-            div.navbar-brand(href='#')
+        nav.navbar.navbar-expand-lg.bg-white.fixed-top
+            div.navbar-brand.ml-4(href='#')
                 p.navbar-title GeekRank
-                span.navbar-cursor |
             button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             div.collapse.navbar-collapse(id="navbarNavDropdown")                              
                 ul.navbar-nav.ml-auto
                     li.nav-item
-                        a.card-link.text-light(href="/logout") Logout
+                        a.card-link.text-secondary.mr-4(href="/logout") Logout
         div.container
             .row
                 each color, index in question
@@ -19,7 +18,7 @@ block body
                                 h5.text-dark.mt-4=color.title
                                 span.text.text-secondary=color.level
                             .col-md-6.align-self-center
-                                a.btn.btn-outline-primary.float-right.custom-a(href="challenge/"+(index+1)) Solve Challenge
+                                a.btn.btn-outline-primary.float-right.custom-button(href="challenge/"+(index+1)) Solve Challenge
 
 
                     
