@@ -7,7 +7,7 @@ var passport = require("passport")
 
 router.post('/login', passport.authenticate('login',{
     successRedirect:'/dashboard',
-    failureRedirect:"/404",
+    failureRedirect:'/',
     failureFlash:true,
   }))
 router.post('/register',controller.registerUser)
