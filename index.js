@@ -44,8 +44,6 @@ router.use('/api', require("./api/routes"))
 
 
 router.use((req, res, next) => {
-  console.log("/" + req.method);
-  console.log("Body", req.body)
   next();
 });
 
@@ -64,9 +62,10 @@ router.get("/dashboard", (req, res) => {
 }) 
 
 router.get("/challenge/:id",(req,res) => {
-  if(!req.isAuthenticated())
-    res.redirect("/")
-  else
+  
+  // if(!req.isAuthenticated())
+  //   res.redirect("/")
+  // else
     questionController.getQuestion(req.params.id , res);
 })
 
