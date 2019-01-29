@@ -8,20 +8,6 @@ var passport = require("passport")
 , LocalStrategy = require('passport-local').Strategy
 
 
-/* validate and login user*/
-exports.login = async function loginUser(req, res) {
-    console.log("LoginUser",req.body.username)
-    console.log("LoginUser",req.isAuthenticated())
-    passport.authenticate('login',{
-        successRedirect:'/dashboard',
-        failureRedirect:"/404",
-        failureFlash:true,
-    })(req, res)
-    
-}
-
-
-
 /* register newUSer */
 exports.registerUser = function registerUser(req, res) {
     dbHelper.query("select count(*) from users").then((val) => {
@@ -54,7 +40,6 @@ exports.registerUser = function registerUser(req, res) {
 }
 
 function addUserToDB(body, res) {
-    console.log("BODY",body)
     bcrypt.hash(sanitizer.sanitize(body.password), 10, (err, hash) => {
         User.sync().then(() => {
             return User.create({
