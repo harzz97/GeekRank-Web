@@ -26,6 +26,9 @@
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
 .main-container {
     min-height: 100vh;
 }
@@ -171,4 +174,8 @@
 #loginPage {
     background: #f9f9f9;
 
+}
+
+.bg-timeout {
+    background: #ff6700 !important;
 }
